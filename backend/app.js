@@ -25,7 +25,6 @@ const io = new Server(httpServer, {
 });
 
 
-const queues = {};
 
 
 const roomStates = new Map();
