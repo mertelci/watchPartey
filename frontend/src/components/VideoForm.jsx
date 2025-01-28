@@ -10,7 +10,7 @@ const VideoForm = ({ onVideoAdded }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const { roomId } = useParams();
-    const YOUTUBE_API_KEY = 'AIzaSyAe6yoqI1mqp0vU8sn6NKZftYO0Y0c8N1c';
+    const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
     const extractVideoId = (url) => {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;

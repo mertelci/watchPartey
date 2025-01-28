@@ -16,7 +16,7 @@ const VideoPlayer = () => {
                     part: 'snippet',
                     q: videoSearch,
                     type: 'video',
-                    key: 'AIzaSyAe6yoqI1mqp0vU8sn6NKZftYO0Y0c8N1c',
+                    key: import.meta.env.VITE_YOUTUBE_API_KEY,
                 },
             });
             setSearchResults(response.data.items);
