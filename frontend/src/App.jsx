@@ -4,7 +4,7 @@ import SignupPage from "./pages/SignupPage";
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import { useAuthStore } from './store/authStore';
-import { Toaster } from 'react-hot-toast'; // Add this import
+import { Toaster } from 'react-hot-toast';
 import RoomPage from './pages/RoomPage';
 function App() {
   const { authUser, checkAuth, isLoading } = useAuthStore()
@@ -14,7 +14,7 @@ function App() {
   }, [checkAuth]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Add loading state
+    return <div>Loading...</div>;
   }
 
   return (

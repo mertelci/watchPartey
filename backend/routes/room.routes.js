@@ -7,7 +7,7 @@ import { addVideoToRoom } from "../controllers/room.controller.js";
 
 const router = express.Router();
 
-// Oda oluşturma endpoint'i
+
 router.post("/create", protectRoute, createRoom);
 router.get("/:roomId/join", protectRoute, joinRoom);
 router.get("/", protectRoute, getRooms);

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useAuthStore } from "../store/authStore";
-import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from 'lucide-react';
-import toast from "react-hot-toast";
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({

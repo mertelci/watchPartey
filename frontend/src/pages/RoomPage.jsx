@@ -306,24 +306,24 @@ const RoomPage = () => {
                                             height="100%"
                                             playing={isPlaying}
                                             volume={volume}
-                                            controls={false} // Disable default controls
-                                            playsinline={true} // Mobil cihazlarda tam ekran modunu engelle
+                                            controls={false}
+                                            playsinline={true}
                                             config={{
                                                 youtube: {
                                                     playerVars: {
                                                         showinfo: 1,
                                                         origin: window.location.origin,
-                                                        disablekb: 1, // Klavye kontrollerini devre dışı bırak
+                                                        disablekb: 1,
                                                         modestbranding: 1,
-                                                        controls: 0, // YouTube kontrollerini devre dışı bırak
-                                                        iv_load_policy: 3, // Video açıklamalarını gizle
-                                                        rel: 0 // İlgili videoları gizle
+                                                        controls: 0,
+                                                        iv_load_policy: 3,
+                                                        rel: 0
                                                     }
                                                 }
                                             }}
                                             style={{
-                                                pointerEvents: 'none', // Tıklamaları devre dışı bırak
-                                                userSelect: 'none' // Metin seçimini engelle
+                                                pointerEvents: 'none',
+                                                userSelect: 'none'
                                             }}
                                             onProgress={({ playedSeconds, loaded }) => {
                                                 if (!isSeeking && isPlaying) {
@@ -382,7 +382,7 @@ const RoomPage = () => {
 
                     {/* Sidebar - Updated Layout */}
                     <div className="col-span-12 lg:col-span-3 flex flex-col gap-6 h-[calc(100vh-8rem)]">
-                        {/* Chat Section - 2/3 height */}
+                        {/* Chat Section */}
                         <div className="h-[95%] bg-black/20 backdrop-blur-sm rounded-2xl shadow-xl border border-white/10 overflow-hidden">
                             <div className="h-full flex flex-col">
                                 <ChatBox roomId={roomId} />

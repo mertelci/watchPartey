@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
 
 const VideoControls = ({
     isPlaying,
@@ -7,13 +7,11 @@ const VideoControls = ({
     onSeek,
     duration,
     currentTime,
-    volume,
-    onVolumeChange,
     disabled
 }) => {
     const [localProgress, setLocalProgress] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
-    const [isMuted, setIsMuted] = useState(false);
+
 
     // Prevent progress updates while dragging
     useEffect(() => {

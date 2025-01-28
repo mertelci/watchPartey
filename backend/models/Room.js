@@ -7,7 +7,7 @@ const RoomSchema = new mongoose.Schema({
     },
     invitedUsers: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'  // Kullanıcı modeline referans veriyoruz
+        ref: 'User'
     }],
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,

@@ -4,10 +4,10 @@ import { protectRoute } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// Kullanıcı kayıt işlemi
+
 router.post("/register", register);
 
-// Kullanıcı giriş işlemi
+
 router.post("/login", login);
 
 router.post("/logout", logout);

@@ -3,7 +3,7 @@
 import Room from '../models/Room.js';
 import User from '../models/User.js';
 
-const rooms = {}; // Hafızada odaları tutmak için geçici bir obje (DB kullanılmıyor)
+
 
 export const createRoom = async (req, res) => {
     try {
@@ -15,22 +15,22 @@ export const createRoom = async (req, res) => {
             return res.status(400).json({ message: "Room name is required" });
         }
 
-        // Username'lerden User ID'leri bul
+
         let invitedUserIds = [];
         if (invitedUsers && Array.isArray(invitedUsers)) {
             const users = await User.find({
                 username: { $in: invitedUsers }
             });
-            
+
             invitedUserIds = users.map(user => user._id);
 
-            // Bulunamayan kullanıcıları kontrol et
+
             const foundUsernames = users.map(user => user.username);
             const notFoundUsers = invitedUsers.filter(username => !foundUsernames.includes(username));
-            
+
             if (notFoundUsers.length > 0) {
-                return res.status(400).json({ 
-                    message: `Following users not found: ${notFoundUsers.join(', ')}` 
+                return res.status(400).json({
+                    message: `Following users not found: ${notFoundUsers.join(', ')}`
                 });
             }
         }
@@ -43,7 +43,6 @@ export const createRoom = async (req, res) => {
 
         await newRoom.save();
 
-        // Populate room with user details
         const populatedRoom = await Room.findById(newRoom._id)
             .populate('createdBy', 'username')
             .populate('invitedUsers', 'username');
@@ -121,19 +120,19 @@ export const addVideoToRoom = async (req, res) => {
         }
 
         const room = await Room.findById(roomId);
-        
+
         if (!room) {
             return res.status(404).json({ message: "Room not found" });
         }
 
-        // Update room with new video
+
         room.video = videoId;
         await room.save();
 
-        res.status(200).json({ 
-            message: "Video added successfully", 
+        res.status(200).json({
+            message: "Video added successfully",
             videoId,
-            room 
+            room
         });
 
     } catch (error) {

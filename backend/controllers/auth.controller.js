@@ -16,17 +16,17 @@ export const register = async (req, res) => {
             return res.status(400).json({ message: "Şifre en az 6 karakter olmalıdır." });
         }
 
-        // Kullanıcının zaten kayıtlı olup olmadığını kontrol et
+
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "Bu e-posta adresi zaten kayıtlı." });
         }
 
-        // Şifreyi hash'leme
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Yeni kullanıcı oluşturma
+
         const newUser = new User({
             username,
             email,
@@ -35,7 +35,7 @@ export const register = async (req, res) => {
 
         if (newUser) {
             await newUser.save();
-            // JWT oluştur ve kullanıcıya gönder
+
             generateToken(newUser._id, res);
 
             res.status(201).json({
@@ -61,19 +61,19 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Kullanıcı kontrolü
+
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({ message: "Invalid credentials." });
         }
 
-        // Şifre doğrulama
+
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
         if (!isPasswordCorrect) {
             return res.status(400).json({ message: "Invalid credentials." });
         }
 
-        // JWT oluştur ve kullanıcıya gönder
+
         generateToken(user._id, res);
 
         res.status(200).json({

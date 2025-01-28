@@ -10,13 +10,13 @@ const VideoPlayer = () => {
 
     const handleSearch = async () => {
         try {
-            // YouTube API'si ile video araması yapacağız
+
             const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
                 params: {
                     part: 'snippet',
                     q: videoSearch,
                     type: 'video',
-                    key: 'AIzaSyAe6yoqI1mqp0vU8sn6NKZftYO0Y0c8N1c', // Buraya kendi API anahtarınızı koymalısınız
+                    key: 'AIzaSyAe6yoqI1mqp0vU8sn6NKZftYO0Y0c8N1c',
                 },
             });
             setSearchResults(response.data.items);

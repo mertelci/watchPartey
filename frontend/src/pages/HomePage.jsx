@@ -4,7 +4,7 @@ import RoomCreateForm from '../components/RoomCreateForm';
 import RoomList from '../components/RoomList';
 
 const HomePage = () => {
-    const { logout, authUser } = useAuthStore();  // authUser'ı ekle
+    const { logout, authUser } = useAuthStore();
 
     const handleLogout = async () => {
         await logout();
