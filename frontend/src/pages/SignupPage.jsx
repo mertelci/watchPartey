@@ -135,7 +135,7 @@ const SignupPage = () => {
                     {/* Right Section - Features */}
                     <div className="flex-1 text-white space-y-8">
                         <div className="space-y-4">
-                            <h2 className="text-4xl font-bold">Join the Watch Party!</h2>
+                            <h2 className="text-4xl font-bold">Join the Watch Partey!</h2>
                             <p className="text-lg text-white/70">
                                 Create an account to start watching videos together with friends in perfect sync.
                             </p>
